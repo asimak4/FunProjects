@@ -1,0 +1,162 @@
+# File:    design1.txt
+# Author:  Alex Simak
+# Date:    Octobet 17 2017
+# Section: 26
+# E-mail:  asimak1@umbc.edu 
+# Description:
+# program will allow a user to “load in” a database of their choosing, and
+# to either (1) search the database, using any of the details listed above; 
+# or (2)-create a playlist of length 10 or less, based on year, artist, or genre 
+
+# main menu options
+USER_QUIT    = -1
+MENU_SEARCH  = 0
+MENU_CREATE  = 1
+
+MIN_SONG_NUM = 0   # minimum number of songs in a playlist
+
+MAX_SONG_NUM = 10  # maximum number of songs in a playlist
+
+# these constants are used to give names to the columns of the 2D list
+YEAR     = 0
+ARTIST   = 1
+TITLE    = 2
+GENRE    = 3
+DURATION = 4
+TEMPO    = 5
+
+DETAIL_MIN = YEAR   # minimum value; used for getValidInput()
+DETAIL_MAX = TEMPO  # maximum value
+
+#Indecies for the index values
+START_INDEX = 0
+END_INDEX = 5
+############################################################################
+# make2DList(filename) constructs a 2D list from a file that contains information
+#              about songs in a music library, such as year and artist
+# Input:       filename;   a string of the music library's file name
+# Output:      resultList; a 2D list of that file in the format below
+
+
+##################################################################
+# getValidInput() gets a valid integer from the user that
+#                 falls within the appropriate range; uses
+#                 a prompt provided at function call
+# Input:          prompt;  a string to use when asking for input
+#                 minimum; a minimum integer
+#                 maximum; a maximum integer
+# Output:         userInput; an integer within the range
+
+
+##################################################################
+# createPlaylist(songs,choice,length) creates a 2D list of all songs within the 
+#                 type selected by the user; limits the list to a length of 
+#                 length 
+# Input:          songs;  
+#                 choice; integer from 1 and 3 representing year,artist or genre
+#                 length; positive int between 0 and 10
+# Output:         length; a 2D list of the first length of songs that match 
+#                 value for the selected choice
+
+
+##################################################################
+# search(songs,col,value) Create a 2D list of all the songs that 
+#                 match the value being searched for in the selected column
+# Input:          col; int between 0 and 5 representing year, artist, 
+# 		  title genre, duration or tempo(respectively)
+#                 value; the value being searche for
+#                 songs; a maximum integer
+# Output:         2DListofSong; list of all songs that match the value in
+# 		  the selected column
+
+
+##################################################################
+# displayMainMenu() prints out the main menu of the program
+# Input:          NONE
+# Output:         NONE
+
+
+
+##################################################################
+# displayOptions() prints out a list of the six different attrubutes
+# 		   shown for each song
+# Input:           NONE
+# Output:          NONE
+
+
+
+##################################################################
+# displayPLOptions() prints out three different options for creating 
+# 		     a playlist
+# Input:          NONE
+# Output:         NONE
+
+
+##################################################################
+# printSongs(songs) prints the details of every song in the given 2D list
+# Input:          songs; 2D list of songs
+# Output:         NONE
+
+
+
+##################################################################
+# colToString(songs) Converts a number to the correspoding column header
+# Input:          takes in an int, index of a column
+# Output:         string containing the column heading
+
+
+##################################################################
+# songToString(song) Converts a songs information into a string of its details
+# Input:          song; 1D list containing details of a single song
+# Output:         final string with details
+
+
+
+def main():
+    # get the filename from the user
+    # call the provided make2DList function to read in songs
+    songs = make2DList
+
+    # create prompt for menu choice
+    # display the main menu options
+    displayMainMenu()
+    # priming read for getting menu choice
+    getValidInput()
+
+    # while menu choice != -1 (for USER_QUIT)
+     
+	# if they want to search
+	    # display the search options
+	    # create prompt for column choice
+	    displayOptions()
+	    # get column choice from user
+	    getValidInput()
+	    # convert choice number to a string
+	    colToString()
+	    value = input("Enter the value you want to search for (colToString)")
+	    #sets the variable songss to the 2D array that finds the certain value in the file
+	    songss = search(songs,col,value)
+	    if list is longer than 0
+	       prints that it found the following..
+	       prints the songss variable
+	    
+	    else
+		prints your search returned no results
+		
+	    displays the main menu
+	    menuChoice = getValidInput()	
+
+	# elif they want to make a playlist
+	    #display the options of playlist for user 
+	    choice = getValidInput()
+	    #new prompt asking them for length of list
+	    length = getValidInput()
+	    
+	    songPlaylist = creatPlaylist()
+	    songToString(songPlaylist)
+	    displays main menu again
+	    prompt
+	    new menuChoice
+     # print thank you for using ... come again
+
+main()
